@@ -36,6 +36,17 @@ function checkAnswers() {
 
   document.getElementById("result").innerText = "Your Score: " + score + "/2";
 }
+
+  const params = new URLSearchParams(window.location.search);
+const user = params.get('user');
+
+// Check if user already accessed
+if(localStorage.getItem(`quiz_${user}_used`)) {
+  document.body.innerHTML = "This quiz link has already been used.";
+} else {
+  localStorage.setItem(`quiz_${user}_used`, "true");
+  // show the quiz
+}
 </script>
 
 </body>
